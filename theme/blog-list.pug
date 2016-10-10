@@ -1,0 +1,13 @@
+html
+	head
+		link(rel="stylesheet", href="static/css/main.css")
+	body
+		h1
+			| Hi, hello!
+		if items
+			each item in items
+				div
+					a(href=item.url)= item.title
+		else
+			p
+				| Pusto tutaj póki co..

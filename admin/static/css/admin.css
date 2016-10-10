@@ -1,0 +1,307 @@
+html, body{
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.clear{
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	clear: both;
+}
+
+.clear-25{
+	height: 25px;
+}
+
+.clear-50{
+	height: 50px;
+}
+
+.centered{
+	display: block;
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+
+#sidebar{
+	background-color: #263238;
+	color: #fff;
+	min-height: 100%;
+	height: 100%;
+	padding-right: 0;
+	padding-top: 50px;
+	position: fixed;
+	left: -100%;
+	z-index: 100;
+	transition: 0.6s left;
+}
+
+#sidebar.opened{
+	left: -15px;
+	transition: 0.6s left;
+}
+
+#main-menu-button{
+	top: 15px;
+	left: 15px;
+	width: 30px;
+	height: 30px;
+	color: #111;
+	text-align: center;
+	border: 0;
+	background: transparent;
+	font-size: 30px;
+	display: block;
+	position: fixed;
+	cursor: pointer;
+	z-index: 111;
+}
+
+#main-menu-button.opened{
+	color: #37474f;
+}
+
+#main-menu-button:hover{
+	color: #DD2C00;
+}
+
+#top-nav{
+	background-color: #263238;
+}
+
+#top-nav > li > a{
+	border-radius: 0;
+	color: #fff;
+	padding: 10px 25px;
+}
+
+#top-nav > li > a:hover{
+	background-color: #121212;
+}
+
+#item-list {
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+#item-list li {
+	list-style: none;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar > ul > li > div{
+	padding: 10px;
+	display: block;
+	cursor: pointer;
+}
+
+#sidebar > ul > li > ul{
+	padding:0;
+	margin: 0;
+	width: 100%;
+}
+
+#sidebar > ul > li > ul > li{
+	padding: 10px 10px 10px 25px;
+}
+
+#sidebar > ul > li > ul > li:hover {
+	background-color: #dd2c00;
+	color: #fff;
+	cursor: pointer;
+}
+
+#main-container{
+	overflow-y: scroll;
+	left: 0;
+	transition: 0.3s left;
+}
+
+#sidebar.opened + #main-container{
+	left: 15%;
+	transition: 0.3s left;
+}
+
+.file-list-item{
+	background-color: #37474f;
+}
+
+.active-list-item{
+	color: #dd2c00;
+}
+
+#md-editor, #preview-editor{
+	width: 75%;
+	resize: none;
+	display: none;
+	border-radius: 0;
+	margin: 20px auto;
+	padding: 0;
+	border: none;
+}
+
+#md-editor{
+	height: 75%;
+	min-height: 75%;
+}
+
+#image-upload-helper{
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	cursor: initial;
+}
+
+#preview-editor{
+	display: none;
+	padding: 30px;
+	background-color: #fafafa;
+	margin-bottom: 100px;
+	clear:both;
+}
+
+#md-editor, #metadata-wrapper{
+	font-family: monospace;
+}
+
+#metadata-wrapper{
+	width: 75%;
+	display: block;
+	margin: 20px auto 10px auto;
+}
+
+#metadata-wrapper > input{
+	border: none;
+	margin: 0;
+	padding: 5px 0 10px 0;
+	display: inline-block;
+	width: 89%;
+	vertical-align: middle;
+	clear: right;
+	color: #37474f;
+}
+
+#metadata-wrapper > label{
+	display: inline-block;
+	font-weight: 400;
+	color: #dd2c00;
+	float: left;
+	vertical-align: middle;
+	padding: 5px 0 10px 0;
+	margin: 0;
+	width: 10%;
+}
+
+#preview-button, #compile-button, #deploy-button{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	top: auto;
+	left: auto;
+	width: 50px;
+	height: 50px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	border: 1px solid #d9d9d9;
+	color: #263238;
+}
+
+#compile-button{
+	bottom: 70px;
+}
+
+#preview-button{
+	bottom: 130px;
+	display: none;
+}
+
+.add-item.glyphicon-plus:hover{
+	color: #DD2C00;
+}
+
+.centered{
+	margin: 0 auto;
+}
+
+.modal-footer.text-center{
+	text-align: center;
+}
+
+footer{
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	bottom: 10px;
+	color: #37474f;
+	text-align: center;
+	width: 90%;
+}
+
+.inku-logo{
+	width:20px;
+	height: 40px;
+	margin: 10px auto 0 auto;
+	display: block;
+	clear: both;
+	background: url('/img/inku-logo.svg') no-repeat center;
+	background-size: contain;
+}
+
+a.footer-text{
+	color: #37474f;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	clear:both;
+}
+
+a.footer-text:hover, .parent-node > div:hover, .page-node:hover{
+	color: #DD2C00;
+}
+
+.parent-node > div:hover > span{
+	color: #fff;
+}
+
+.child-node{
+	max-height: 0;
+	transition: 0.5s max-height;
+	overflow: hidden;
+}
+
+.child-node.collapsed{
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 400px;
+	transition: 0.5s max-height;
+}
+
+#add-page-button{
+	background: #37474F;
+	color: #263238;
+	border: none;
+}
+
+#add-page-button:hover{
+	color: #fff;
+	background: #DD2C00;
+}
+
+#loader{
+	display: none;
+	z-index: 9999;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.5) url('../img/loader.svg') no-repeat center;
+	position: fixed;
+}

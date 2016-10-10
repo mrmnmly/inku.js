@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/admin.css">
+	</head>
+	<body>
+		input(type='hidden', value=dirname, id='dirname')
+		<input type="hidden" id="file-url-helper">
+		<div class="col-md-2 col-xs-6" id="sidebar">
+			<footer>
+				<div class="inku-logo"></div>
+				<a href="http://theinku.com" class="footer-text">www.theinku.com</a>
+			</footer>
+			if fileList
+				<ul class="nav-pills-stacked nav" id="item-list">
+					each item, key in fileList
+						if !item.title 
+							li(class='parent-node', data-url=key)
+								div= key
+									span(class='add-item glyphicon glyphicon-plus pull-right', data-url=key, title='Add new file here', data-toggle='modal', data-target='#new-item-modal')
+								ul(class='child-node')
+									each entry in item
+										li(class='file-list-item', data-cat=entry.category, data-file=entry.file, data-url=entry.path)= entry.file
+						else
+							li(class='page-node', data-url=key)
+								div= key
+				</ul>
+				<div class="clear clear-25"></div>
+				<button class="btn btn-primary centered" id="add-page-button">add page</button>
+		</div>
+		<div class="col-md-10 col-xs-10" id="main-container">
+			<span id="main-menu-button" class="glyphicon glyphicon-menu-hamburger"></span>
+			<input type="file" id="image-upload-helper">
+			<div id="metadata-wrapper"></div>
+			<textarea id="md-editor" placeholder="Start writing here.."></textarea>
+			<div id="preview-editor"></div>
+		</div>
+		<button id="preview-button" class="glyphicon glyphicon-eye-open" data-toggle="tooltip" data-placement="left" title="Preview"</button>
+		<button id="compile-button" class="glyphicon glyphicon-cog" data-toggle="tooltip" data-placement="left" title="Compile to HTML"></button>
+		<button id="deploy-button" class="glyphicon glyphicon-cloud-upload" data-toggle="tooltip" data-placement="left" title="Deploy via FTP"></button>
+
+		<div id="loader"></div>
+
+		<div class="modal fade" id="new-item-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h5 class="modal-title">Add new article</h5>
+					</div>
+					<div class="modal-body text-center">
+						<input type="hidden" id="modal-folder-helper">
+						<input type="text" placeholder="New article title" id="new-item-title">
+					</div>
+					<div class="modal-footer text-center">
+						<button class="btn btn-primary" id="save-new-item">Save new article</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="new-page-modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h5 class="modal-title">Add new page</h5>
+					</div>
+					<div class="modal-body text-center">
+						<input type="text" placeholder="New page title" id="new-page-title">
+					</div>
+					<div class="modal-footer text-center">
+						<button class="btn btn-primary" id="save-new-page">Save new page</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/momentjs.min.js"></script>
+		<script type="text/javascript" src="js/nicescroll.min.js"></script>
+		<script type="text/javascript" src="js/admin.js"></script>
+	</body>
+</html>
