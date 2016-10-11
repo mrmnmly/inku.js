@@ -152,20 +152,5 @@ app.get('/deploy/', function(req, res){
 	}
 });
 
-// // preview generated website
-// app.get('/preview/:name', function(req, res){
-// 	var fileName = req.query.name;
-// 	var helperUrl = __dirname + '/../output/' + fileName + '/index.html';
-// 	if(!fileName){
-// 		helperUrl = __dirname + '/../output/index.html';
-// 	}
-// 	var file = inkuImport.getFile(helperUrl);
-// 	if(file){
-// 		res.send(file);
-// 	}else{
-// 		res.status(404).send('File not found.');
-// 	}
-// });
-
 // server start
 app.listen(3000);
