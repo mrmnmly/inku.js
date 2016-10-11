@@ -1,8 +1,8 @@
 date: 21/07/2016
-title: Home page
+title: Example home page
 category: 
-tags: random stuff
+tags: 
 
 #Welcome!
 
-I'm a front-end developer with back-end experience. How can I help You?
+This is example home page with example content.
