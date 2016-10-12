@@ -2,11 +2,11 @@ node_modules/
 output/
 connect.json
 !connect-example.json
-source/
+source
 !source/example.md
 !source/index.md
 !source/example-cat/2016072365414_example_blog_post.md
-theme/
+theme
 !theme/index.pug
 !theme/example-page.pug
 !theme/example-cat-item.pug
