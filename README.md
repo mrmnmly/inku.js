@@ -64,7 +64,7 @@ Then, we have to create theme files for those pages, inside `/theme` folder:
 
 - `about-page.pug`
 
-Please, pay attention to file naming - `inku` will match content pages with its theme counterparts.
+Please, pay attention to file naming - **inku** will match content pages with its theme counterparts.
 
 In addition, if we want to have a blog on our page, where we will add some articles, we have to create a `blog` folder inside `/source` folder.
 
