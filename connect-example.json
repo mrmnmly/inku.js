@@ -1,3 +1,4 @@
+// rename this file to "connect.json"
 {
 	"ftp": "ftp://YOUR_FTP",
 	"user": "YOUR_FTP_LOGIN",

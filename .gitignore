@@ -2,12 +2,12 @@ node_modules/
 output/
 connect.json
 !connect-example.json
-source/
 !source/example.md
 !source/index.md
 !source/example-cat/2016072365414_example_blog_post.md
-theme/
 !theme/index.pug
 !theme/example-page.pug
 !theme/example-cat-item.pug
 !theme/example-cat-list.pug
+source
+theme
