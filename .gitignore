@@ -9,3 +9,5 @@ connect.json
 !theme/example-page.pug
 !theme/example-cat-item.pug
 !theme/example-cat-list.pug
+source
+theme
