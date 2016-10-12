@@ -5,9 +5,7 @@ connect.json
 !source/example.md
 !source/index.md
 !source/example-cat/2016072365414_example_blog_post.md
-source
 !theme/index.pug
 !theme/example-page.pug
 !theme/example-cat-item.pug
 !theme/example-cat-list.pug
-theme
