@@ -1,5 +1,9 @@
 html(lang="en")
 	head
+		block title
+			title  my website - #{metadata.title}
+		link(href='static/css/main.css', rel='stylesheet')
+		script(src='static/js/main.js', type='text/javascript')
 	body
 		h1(class="post-title")
 			| #{metadata.title}

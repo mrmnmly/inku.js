@@ -36,8 +36,10 @@
     "wmd": "^0.2.11"
   },
   "devDependencies": {
+    "clean-css": "^3.4.20",
     "ftp-deploy": "^1.1.0",
     "ftpimp": "^2.2.33",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "uglify-js": "^2.7.3"
   }
 }
