@@ -1,4 +1,4 @@
 (function(){
-	alert('bla bla');
-	console.log('aha aha');
+	alert('test test');
+	console.log('gotcha!');
 })();
