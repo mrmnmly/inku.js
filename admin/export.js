@@ -131,6 +131,8 @@ module.exports = {
 		module.exports.compileItems(itemThemes);
 		module.exports.compileLists(listThemes);
 		module.exports.compilePages(pageThemes);
+		module.exports.compileCSS();
+		module.exports.compileJS();
 	},
 	// helper function that convert string to slug
 	slugify: function(txt){
@@ -236,5 +238,40 @@ module.exports = {
 			    delete ftpDeploy;
 			});
 		});
-	}
+	},
+	// function that minify and copy stylesheet files to output folder
+	compileCSS: function(){
+		var CleanCSS = require('clean-css');
+		var fs = require('fs-extra');
+		var inkuImport = require('./import');
+		var staticPath = __dirname + '/../theme/static/css/'
+		var stylesheets = inkuImport.getFiles(staticPath);
+		for(var x = 0, l = stylesheets.length; x < l; x++){
+			var filePath = staticPath + stylesheets[x];
+			var source = inkuImport.getFile(filePath);
+			var minified = new CleanCSS().minify(source).styles;
+			var fileName = stylesheets[x].split('/');
+			fileName = fileName[fileName.length - 1];
+			var output = __dirname + '/../output/static/css/' + fileName;
+			fs.outputFileSync(output, minified);
+			console.log(output, ' stylesheet file saved!');
+		}
+	},
+	// function that minify and copy javascript static files to output folder
+	compileJS: function(){
+		var uglifyJS = require("uglify-js");
+		var fs = require('fs-extra');
+		var inkuImport = require('./import');
+		var staticPath = __dirname + '/../theme/static/js/'
+		var scripts = inkuImport.getFiles(staticPath);
+		for(var x = 0, l = scripts.length; x < l; x++){
+			var filePath = staticPath + scripts[x];
+			var minified = uglifyJS.minify(filePath);
+			var fileName = scripts[x].split('/');
+			fileName = fileName[fileName.length - 1];
+			var output = __dirname + '/../output/static/js/' + fileName;
+			fs.outputFileSync(output, minified.code);
+			console.log(output, ' js script file saved!');
+		}
+	},
 };

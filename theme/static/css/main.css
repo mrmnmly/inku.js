@@ -1,1 +1,9 @@
+.logo-wrapper{display: block; margin: 150px auto; width: 100px}
+.logo{display: block; margin-top: 30px; background-color: #DD2C00; width: 35px; height: 30px; -webkit-transform:skew(25deg,0deg); -moz-transform:skew(25deg,0deg); 
+-o-transform:skew(25deg,0deg); transform:skew(25deg,0deg); float: left; clear:both; position: relative;}
+.logo:before, .logo:after{content: " "; display: block; background-color: #263238; height: 30px; -webkit-transform:skew(-50deg,0deg); -moz-transform:skew(-50deg,0deg); 
+-o-transform:skew(-50deg,0deg); transform:skew(-50deg,0deg); position: relative;}
+.logo:before{margin-top: -30px; margin-left:52px; margin-right: -54px}
+.logo:after{margin-top:30px; margin-left:-17px; margin-right:-22px}
+
 h1{color: pink;}

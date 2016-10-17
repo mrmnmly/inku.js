@@ -1,6 +1,11 @@
 html(lang="en")
 	head
+		block title
+			title lukaszkups.net - #{metadata.title}
+		link(href='/css/main.css', rel='stylesheet')
 	body
+		div(class="logo-wrapper")
+			div(class="logo")
 		h1(class="post-title")
 			| #{metadata.title}
 		div(class="clear clear20")
