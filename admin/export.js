@@ -242,6 +242,7 @@ module.exports = {
 	// function that minify and copy stylesheet files to output folder
 	compileCSS: function(){
 		var CleanCSS = require('clean-css');
+		var sass = require('node-sass');
 		var fs = require('fs-extra');
 		var inkuImport = require('./import');
 		var staticPath = __dirname + '/../theme/static/css/'
@@ -249,12 +250,27 @@ module.exports = {
 		for(var x = 0, l = stylesheets.length; x < l; x++){
 			var filePath = staticPath + stylesheets[x];
 			var source = inkuImport.getFile(filePath);
-			var minified = new CleanCSS().minify(source).styles;
 			var fileName = stylesheets[x].split('/');
 			fileName = fileName[fileName.length - 1];
 			var output = __dirname + '/../output/static/css/' + fileName;
-			fs.outputFileSync(output, minified);
-			console.log(output, ' stylesheet file saved!');
+			if(fileName.indexOf('.scss') > -1){
+				output = output.replace('.scss', '.css');
+				sass.render({
+					data: source,
+					outputStyle: 'compressed'
+				}, function(err, result){
+					if(!err){
+						fs.outputFileSync(output, result.css);
+						console.log(output, ' SCSS file parsed and saved!');
+					}else{
+						console.log("There was an error during scss file parse: ", filePath);
+					}
+				})
+			}else{
+				var minified = new CleanCSS().minify(source).styles;
+				fs.outputFileSync(output, minified);
+				console.log(output, ' stylesheet file saved!');
+			}
 		}
 	},
 	// function that minify and copy javascript static files to output folder
