@@ -267,6 +267,7 @@ module.exports = {
 					}
 				})
 			}else{
+				var minified = new CleanCSS().minify(source).styles;
 				fs.outputFileSync(output, minified);
 				console.log(output, ' stylesheet file saved!');
 			}
