@@ -133,6 +133,8 @@ module.exports = {
 		module.exports.compilePages(pageThemes);
 		module.exports.compileCSS();
 		module.exports.compileJS();
+		module.exports.compileAssets(__dirname + '/../theme/static/img/', __dirname + '/../output/static/img/');
+		module.exports.compileAssets(__dirname + '/../public/', __dirname + '/../output/public/');
 	},
 	// helper function that convert string to slug
 	slugify: function(txt){
@@ -273,6 +275,7 @@ module.exports = {
 			}
 		}
 	},
+
 	// function that minify and copy javascript static files to output folder
 	compileJS: function(){
 		var uglifyJS = require("uglify-js");
@@ -290,4 +293,17 @@ module.exports = {
 			console.log(output, ' js script file saved!');
 		}
 	},
+
+	// function that compiles static assets from theme folder to output (static/img/ for theme assets or public/ for article assets)
+	compileAssets: function(sourceFolderPath, destinationPath){
+		var fs = require('fs-extra');
+		var inkuImport = require('./import');
+		var list = inkuImport.getFiles(sourceFolderPath);
+		for(var x = 0, l = list.length; x < l; x++){
+			var fileName = list[x].split('/');
+			var output = destinationPath + fileName;
+			fs.outputFileSync(output, list[x]);
+			console.log('File ', output, ' saved!');
+		}
+	}
 };
