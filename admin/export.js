@@ -302,8 +302,9 @@ module.exports = {
 		for(var x = 0, l = list.length; x < l; x++){
 			var fileName = list[x].split('/');
 			var output = destinationPath + fileName;
-			fs.outputFileSync(output, list[x]);
-			console.log('File ', output, ' saved!');
+			var source = inkuImport.getFile(sourceFolderPath + list[x]);
+			fs.outputFileSync(output, source);
+			console.log('Asset file ', output, ' saved!');
 		}
 	}
 };
