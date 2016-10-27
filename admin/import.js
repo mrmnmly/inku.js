@@ -9,7 +9,7 @@ module.exports = {
 		});
 	},
 	// returns file content based on given file path
-	getFile: function(pathStr, binary){
+	getFile: function(pathStr){
 		var fs = require('fs');
 		var path = require('path');
 		return fs.readFileSync(pathStr, 'utf8', function(err, data){
