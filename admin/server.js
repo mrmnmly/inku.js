@@ -99,12 +99,13 @@ app.post('/save-file/', function(req, res){
 		txt += key + ': ' + customs[key] + '\n';
 	}
 	txt += '\n' + content;
+	console.log(fileUrl)
 	fs.writeFile(fileUrl, txt, function(err){
 		if(err){
 			console.warn(err);
 		}
 		console.log('file saved!');
-		res.send('file saved');
+		res.sendStatus(200);
 	});
 });
 

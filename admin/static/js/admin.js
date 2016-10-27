@@ -137,6 +137,10 @@
 			e.preventDefault();
 			var txt = document.getElementById('md-editor').value;
 			var fileUrl = document.getElementById('file-url-helper').value;
+			// if is true, then it is a subpage element because subpages doesn't have full urls so we have to add it
+			if(fileUrl.indexOf('source') < 0){
+				fileUrl = document.getElementById('dirname').value + '/../source/' + fileUrl;
+			}
 			var obj = {};
 			var inputs = document.querySelectorAll('#metadata-wrapper input');
 			for(var x = 0, l = inputs.length; x < l; x++){

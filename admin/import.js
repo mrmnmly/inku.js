@@ -20,6 +20,20 @@ module.exports = {
 			}
 		})
 	},
+
+	// returns image file content based on given file path
+	getImageFile: function(pathStr){
+		var fs = require('fs');
+		var path = require('path');
+		return fs.readFileSync(pathStr, 'binary', function(err, data){
+			if(err){
+				console.warn(err);
+			}else{
+				return data;
+			}
+		})
+	},
+
 	// returns file list in given path
 	getFiles: function(pathStr){
 		var fs = require('fs');
@@ -28,6 +42,7 @@ module.exports = {
 			return !fs.statSync(pathStr+'/'+file).isDirectory();
 		});
 	},
+
 	// returns complete file list, ready to be displayed in admin section
 	getFileList: function(){
 		var itemDirs = module.exports.getDirectories(__dirname + '/../source');
@@ -63,6 +78,7 @@ module.exports = {
 		}
 		return fileList;
 	},
+
 	// helper function for image decoding
 	decodeBase64Image: function(dataString){
 		var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
